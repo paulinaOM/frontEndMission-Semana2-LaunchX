@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles/main.css"/>
+    <title>Cupcaking!</title>
+</head>
+<body>
+<header id="header">
+    <div class="container-sbetween toolbar">
+        <div class="container-saround">
+            <i class="fa fa-phone icon-sm"></i><a href="./cliente/contacto.html">461123456</a>
+            <i class="fa fa-location-dot icon-sm"></i><a href="./cliente/contacto.html">VISÍTANOS</a>
+        </div>
+        <div><i class="fa fa-user icon-sm"></i><a href="./pastelero/index.html">INICIAR COMO PASTELERO</a></div>
+    </div>
+    <div class="container-saround">
+        <img alt="Cupcaking" src="./imagenes/logo_pasteleria.png" width="200px">
+    </div>
+            
+    <nav>
+        <ul class="container-saround">
+            <li><a href="#" class="home">INICIO</a></li>
+            <li><a href="./cliente/pasteles.html">PASTELES</a></li>
+            <li><a href="./cliente/adornos.html">ADORNOS</a></li>
+            <li><a href="./cliente/cupcakes.html">CUPCAKES</a></li>
+            <li><a href="./cliente/contacto.html">CONTACTO</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="bg-image overlap-container" id="img_banner">
+        <div class="overlap container-sbetween">
+                <i class="fa fa-angle-left icon-lg" id="previous_image"></i>
+                <i class="fa fa-angle-right icon-lg" id="next_image"></i>
+        </div>
+        <div class="overlap-y container-sbetween" style="width: 40%;">
+            <h1 id="h1_overlay_text">El sabor de la ciudad más dulce del mundo hasta tu casa</h1>
+        </div>
+    </div>
+
+    <section>
+        <h2>¿QUÉ SE TE ANTOJA HOY?</h2>
+        <div class="container-saround">
+            <div class="item-grid overlap-container">
+                <img src="./imagenes/pasteles/chocolate.jpg">
+                <div class="container-saround overlap"><a href="./cliente/pasteles.html" class="overlap-text">Pastel</a></div>
+            </div>
+            <div class="item-grid overlap-container">
+                <img src="./imagenes/adornos/dulces.jpg">
+                <div class="container-saround overlap "><a href="./cliente/adornos.html" class="overlap-text">Adornos/Toppings</a></div>
+            </div>
+            <div class="item-grid overlap-container">
+                <img src="./imagenes/cupcake/chispas_chocolate.jpg">
+                <div class="container-saround overlap "><a href="./cliente/cupcakes.html" class="overlap-text">Cupcakes</a></div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>NUESTROS INGREDIENTES</h2>
+        <div class="container-sbetween">
+            <div class="flex-item"><i class="fa-solid fa-heart icon-lg"></i><h4>Amor</h4></div>
+            <div class="flex-item"><i class="fa fa-hand-holding-heart icon-lg"></i><h4>Amabilidad</h4></div>
+            <div class="flex-item"><i class="fa-solid fa-handshake icon-lg"></i><h4>Respeto</h4></div>
+            <div class="flex-item"><i class="fa-solid fa-fire icon-lg"></i><h4>Pasión por lo que hacemos</h4></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    Celaya, Guanajuato. México<br>
+    Cupcaking! Pastelería<br>
+    <i class="fa fa-phone icon-sm"></i>461123456<br>
+    <i class="fa fa-envelope icon-sm"></i>hola.cupcaking@correo.com<br>
+</footer>
+
+<script>
+    var btn_next = document.getElementById("next_image");
+    var btn_previous = document.getElementById("previous_image");
+    var image = document.getElementById('img_banner');
+    var text  = document.getElementById('h1_overlay_text');
+
+    var url_base = './imagenes/pasteles';
+    var index = 1;
+    
+    var phrases = [];
+    phrases[0]= "El sabor de la ciudad más dulce del mundo hasta tu casa";
+    phrases[1]= "Una delicia al alcance de tu paladar";
+    phrases[2]= "El dulce recuerdo para tus celebraciones";
+
+    btn_next.addEventListener('click', next_image);
+    btn_previous.addEventListener('click', previous_image);
+
+    function next_image(){
+        index++;
+        index>3? index=1:null;
+        displayImage()
+    }
+
+    function previous_image(){
+        index--;
+        index<1? index=3:null;
+        displayImage();
+    }
+
+    function displayImage(){
+        url = url_base +'/'+index+'.jpg';
+        image.style.backgroundImage = "url('"+url+"')";
+        text.innerHTML = phrases[index-1];
+    }
+
+</script>
+</body>
+</html>
